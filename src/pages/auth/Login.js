@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginAction, selectIsLoadingFromAuth } from '../../redux/slices/auth';
 import { Alert, LinearProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 // import axios from 'axios';
 
 function Copyright(props) {
@@ -62,10 +63,11 @@ export default function Login() {
     onSubmit: async (values, { setErrors, setSubmitting }) => {
       console.log('🚀 => values', values);
 
-      const validPayload = {"usernameOrEmail":values.email,"password":values.password,"isSuperUser":"N"}
+      const validPayload = {"usernameOrEmail":"sysadmin","password":"welcome","isSuperUser":"N"}
 
       dispatch(
-        loginAction (validPayload)
+        loginAction(validPayload
+        )
       );
 
       // fetch('http://secure.focusrtech.com:3030/techstep/api/auth/signin', {
@@ -182,7 +184,7 @@ export default function Login() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href='/techstep/signup' variant='body2'>
+                <Link href='/examportal/signup' variant='body2'>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -191,6 +193,7 @@ export default function Login() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
+      <Footer />
     </ThemeProvider>
   );
 }

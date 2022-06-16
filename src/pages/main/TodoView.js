@@ -17,8 +17,12 @@ export default function TodoView({
   handleChange,
   formState,
 }) {
+
+  const style = {
+    backgroundColor: "#f5f5f5"
+  }
   return (
-    <Dialog
+    <Dialog style={style}
       onClose={handleCloseDialog}
       open={openDialog}
       maxWidth='sm'
